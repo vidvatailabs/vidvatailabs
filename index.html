@@ -437,10 +437,46 @@
             transition: all 0.3s;
         }
 
-        .form-submit:hover {
+        .form-submit:hover:not(:disabled) {
             background: #E19A32;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(220, 152, 48, 0.3);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .form-message-success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #4ade80;
+        }
+
+        .form-message-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #f87171;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Footer */
@@ -700,7 +736,7 @@
                 </ul>
     </div>
 
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input type="text" id="name" name="name" required>
@@ -780,8 +816,12 @@
         });
 
         // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            const form = this;
+            const submitButton = form.querySelector('.form-submit');
+            const originalButtonText = submitButton.textContent;
             
             // Get form data
             const formData = {
@@ -791,16 +831,101 @@
                 message: document.getElementById('message').value
             };
             
-            // Here you would typically send this to a server
-            // For now, we'll just show an alert
-            alert('Thank you for your message! We\'ll get back to you soon.\n\n' +
-                  'Name: ' + formData.name + '\n' +
-                  'Email: ' + formData.email + '\n' +
-                  'Subject: ' + formData.subject);
+            // Show loading state
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
             
-            // Reset form
-            this.reset();
+            try {
+                // OPTION 1: Formspree (Easiest - No backend needed)
+                // Replace 'YOUR_FORMSPREE_ID' with your Formspree form ID
+                // Get it from https://formspree.io/
+                const formspreeEndpoint = 'https://formspree.io/f/mykdevan';
+                
+                const response = await fetch(formspreeEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    // Success message
+                    showFormMessage('success', 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+                
+                // OPTION 2: Custom Backend Endpoint
+                // Uncomment and replace with your backend endpoint:
+                /*
+                const backendEndpoint = 'https://your-backend.com/api/contact';
+                const response = await fetch(backendEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    showFormMessage('success', 'Thank you! Your message has been sent successfully.');
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+                */
+                
+                // OPTION 3: EmailJS (Client-side email sending)
+                // Requires EmailJS setup - see https://www.emailjs.com/
+                /*
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message
+                }).then(() => {
+                    showFormMessage('success', 'Thank you! Your message has been sent successfully.');
+                    form.reset();
+                }).catch((error) => {
+                    throw error;
+                });
+                */
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showFormMessage('error', 'Sorry, there was an error sending your message. Please try again or email us directly.');
+            } finally {
+                // Reset button state
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            }
         });
+        
+        // Function to show form messages
+        function showFormMessage(type, message) {
+            // Remove existing messages
+            const existingMessage = document.querySelector('.form-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Create message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `form-message form-message-${type}`;
+            messageDiv.textContent = message;
+            
+            // Insert before form
+            const form = document.getElementById('contactForm');
+            form.parentNode.insertBefore(messageDiv, form);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
 
         // Mobile menu toggle (basic implementation)
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
