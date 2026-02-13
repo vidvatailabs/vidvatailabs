@@ -1,123 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vidvat AI Labs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>VidvatAI Labs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #111827);
-      background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #111827);
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        .container {
+            max-width: 900px;
+        }
 
-    .container {
-      backdrop-filter: blur(15px);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 50px;
-      border-radius: 20px;
-      max-width: 600px;
-      width: 100%;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      animation: fadeIn 1.5s ease;
-    }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 25px;
+        }
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-    }
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
 
-    p {
-      opacity: 0.8;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
+        .highlight {
+            font-weight: 600;
+            color: #ffffff;
+        }
 
-    .email-box {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-    input {
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      width: 250px;
-      outline: none;
-    }
+        .btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
 
-    button {
-      padding: 12px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      background: #3b82f6;
-      color: white;
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
+        .primary {
+            background: #38bdf8;
+            color: #0f172a;
+        }
 
-    button:hover {
-      background: #2563eb;
-      transform: scale(1.05);
-    }
+        .primary:hover {
+            background: #0ea5e9;
+        }
 
-    .footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      opacity: 0.6;
-    }
-  </style>
+        .secondary {
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .secondary:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Vidvat AI Labs</h1>
-    <p>
-      Building intelligent systems that empower the future.  
-      We are crafting next-generation AI solutions for creators, developers, and enterprises.
-    </p>
+    <div class="container">
+        <h1>VidvatAI Labs</h1>
 
-    <div class="email-box">
-      <input type="email" placeholder="Enter your email" />
-      <button>Notify Me</button>
-    </div>
+        <div class="tagline">
+            AI that thinks with you.<br>
+            Solutions that move life forward.
+        </div>
 
-    <div class="footer">
-      🚀 Launching Soon
+        <p class="description">
+            We build practical, human-centric AI products that simplify 
+            <span class="highlight">learning</span>, 
+            <span class="highlight">planning</span>, 
+            <span class="highlight">creativity</span>, and 
+            <span class="highlight">community living</span>.
+            <br><br>
+            From students and families to professionals and neighborhoods, 
+            our solutions turn everyday moments into smarter experiences.
+        </p>
+
+        <div class="description" style="font-size: 1.2rem; font-weight: 600;">
+            Build. Learn. Decide. Enjoy — powered by AI.
+        </div>
+
+        <div class="buttons">
+            <a href="#" class="btn primary">Get Started</a>
+            <a href="#" class="btn secondary">Explore Solutions</a>
+        </div>
+
+        <div class="footer">
+            © 2026 VidvatAI Labs. All rights reserved.
+        </div>
     </div>
-  </div>
 
 </body>
 </html>
