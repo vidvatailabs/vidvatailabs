@@ -6,11 +6,16 @@
     <title>VidvatAI Labs - AI that thinks with you</title>
     <meta name="description" content="Practical, human-centric AI products that simplify learning, planning, creativity, and community living.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="images/logo.webp">
+    <link rel="apple-touch-icon" href="images/logo.webp">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         * {
             margin: 0;
@@ -69,6 +74,19 @@
             font-weight: 800;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: inline-block;
         }
 
         .nav-links {
@@ -441,6 +459,19 @@
             color: var(--primary);
         }
 
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 35px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .footer-section p,
         .footer-section a {
             color: var(--text-secondary);
@@ -532,7 +563,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">VidvatAI Labs</a>
+            <a href="#" class="logo">
+                <img src="images/logo.webp" alt="VidvatAI Labs Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                <span class="logo-text">VidvatAI Labs</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#solutions">Solutions</a></li>
@@ -547,22 +581,22 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content fade-in">
-            <h1>VidvatAI Labs</h1>
-            <div class="tagline">
-                AI that thinks with you.<br>
-                Solutions that move life forward.
-            </div>
-            <p class="description">
-                We build practical, human-centric AI products that simplify 
-                <span class="highlight">learning</span>, 
-                <span class="highlight">planning</span>, 
-                <span class="highlight">creativity</span>, and 
-                <span class="highlight">community living</span>.
-                From students and families to professionals and neighborhoods, 
-                our solutions turn everyday moments into smarter experiences.
-            </p>
+        <h1>VidvatAI Labs</h1>
+        <div class="tagline">
+            AI that thinks with you.<br>
+            Solutions that move life forward.
+        </div>
+        <p class="description">
+            We build practical, human-centric AI products that simplify 
+            <span class="highlight">learning</span>, 
+            <span class="highlight">planning</span>, 
+            <span class="highlight">creativity</span>, and 
+            <span class="highlight">community living</span>.
+            From students and families to professionals and neighborhoods, 
+            our solutions turn everyday moments into smarter experiences.
+        </p>
             <div class="cta-text">
-                Build. Learn. Decide. Enjoy — powered by AI.
+            Build. Learn. Decide. Enjoy — powered by AI.
             </div>
             <div class="buttons">
                 <a href="#contact" class="btn btn-primary">Get Started</a>
@@ -657,8 +691,8 @@
                         <span>Within 24 hours</span>
                     </li>
                 </ul>
-            </div>
-            
+    </div>
+
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name *</label>
@@ -685,7 +719,10 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h4>VidvatAI Labs</h4>
+                <div class="footer-logo">
+                    <img src="images/logo.webp" alt="VidvatAI Labs Logo" onerror="this.style.display='none';">
+                    <h4>VidvatAI Labs</h4>
+                </div>
                 <p>AI that thinks with you. Solutions that move life forward.</p>
                 <div class="social-links">
                     <a href="#" aria-label="LinkedIn">in</a>
