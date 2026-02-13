@@ -355,7 +355,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .contact-info p {
@@ -415,7 +415,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(220, 152, 48, 0.1);
         }
 
         .form-group textarea {
@@ -426,18 +427,20 @@
         .form-submit {
             width: 100%;
             padding: 1rem;
-            background: var(--primary);
+            background: var(--secondary);
             color: var(--bg-dark);
             border: none;
             border-radius: 6px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .form-submit:hover {
-            background: var(--primary-dark);
+            background: #E19A32;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 152, 48, 0.3);
         }
 
         /* Footer */
