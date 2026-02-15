@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>VidvatAI Labs - AI that thinks with you</title>
+    <title>VidvatAI Labs - Limitless AI</title>
     <meta name="description" content="Practical, human-centric AI products that simplify learning, planning, creativity, and community living.">
     
     <!-- Favicon -->
@@ -89,8 +89,41 @@
             object-fit: contain;
         }
 
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
         .logo-text {
             display: inline-block;
+        }
+
+        .brand-tagline {
+            font-size: 0.55em;
+            font-weight: 500;
+            color: var(--secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Hero brand tagline */
+        .hero .brand-tagline {
+            font-size: 0.35em;
+            letter-spacing: 0.2em;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Footer brand tagline */
+        .footer-brand-tagline {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.9;
         }
 
         .nav-links {
@@ -608,7 +641,10 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <img src="images/logo.svg" alt="VidvatAI Labs Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-                <span class="logo-text">VidvatAI Labs</span>
+                <span class="logo-text-wrapper">
+                    <span class="logo-text" data-brand="name">VidvatAI Labs</span>
+                    <span class="brand-tagline" data-brand="tagline">Limitless AI</span>
+                </span>
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -624,7 +660,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content fade-in">
-        <h1>VidvatAI Labs</h1>
+        <h1 data-brand="name">VidvatAI Labs<span class="brand-tagline" data-brand="tagline">Limitless AI</span></h1>
         <div class="tagline">
             AI that thinks with you.<br>
             Solutions that move life forward.
@@ -759,7 +795,10 @@
             <div class="footer-section">
                 <div class="footer-logo">
                     <img src="images/logo.svg" alt="VidvatAI Labs Logo" onerror="this.style.display='none';">
-                    <h4>VidvatAI Labs</h4>
+                    <div>
+                        <h4 data-brand="name">VidvatAI Labs</h4>
+                        <span class="footer-brand-tagline" data-brand="tagline">Limitless AI</span>
+                    </div>
                 </div>
                 <p>AI that thinks with you. Solutions that move life forward.</p>
                 <div class="social-links">
@@ -791,11 +830,45 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 VidvatAI Labs. All rights reserved.</p>
+            <p data-brand-year>&copy; 2024 VidvatAI Labs. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        /* ============================================
+           SITE CONFIG — Single source of truth
+           Change brand values here and they auto-update
+           across the entire site.
+           ============================================ */
+        const SITE_CONFIG = {
+            brand: {
+                name: 'VidvatAI Labs',
+                tagline: 'Limitless AI',
+                description: 'AI that thinks with you. Solutions that move life forward.',
+            },
+            meta: {
+                year: new Date().getFullYear(),
+            },
+            contact: {
+                email: 'support@vidvatailabs.com',
+                support: 'help@vidvatailabs.com',
+                business: 'business@vidvatailabs.com',
+            }
+        };
+
+        // Auto-populate all elements with data-brand attributes from config
+        document.querySelectorAll('[data-brand]').forEach(el => {
+            const key = el.getAttribute('data-brand');
+            if (SITE_CONFIG.brand[key]) {
+                el.textContent = SITE_CONFIG.brand[key];
+            }
+        });
+
+        // Auto-update copyright year
+        document.querySelectorAll('[data-brand-year]').forEach(el => {
+            el.textContent = el.textContent.replace(/\d{4}/, SITE_CONFIG.meta.year);
+        });
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
