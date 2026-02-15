@@ -331,6 +331,48 @@
             box-shadow: 0 10px 30px rgba(26, 145, 202, 0.1);
         }
 
+        a.solution-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+
+        .solution-card-live {
+            border-color: var(--secondary);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(220, 152, 48, 0.05) 100%);
+        }
+
+        .solution-card-live:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(220, 152, 48, 0.15);
+        }
+
+        .solution-card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--secondary);
+            color: var(--bg-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .solution-card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .solution-card-live:hover .solution-card-link {
+            color: var(--primary);
+        }
+
         .solution-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
@@ -689,11 +731,13 @@
         <p class="section-subtitle">Tailored AI products for every aspect of modern life</p>
         
         <div class="solutions-grid">
-            <div class="solution-card">
-                <div class="solution-icon">🎓</div>
-                <h3>Learning Solutions</h3>
-                <p>Transform how students learn with AI-powered tools that adapt to individual learning styles, making education more engaging and effective.</p>
-            </div>
+            <a href="https://reviseai.vidvatailabs.com/" target="_blank" class="solution-card solution-card-live">
+                <div class="solution-card-badge">Live</div>
+                <div class="solution-icon">📖</div>
+                <h3>Revise AI</h3>
+                <p>Ace your exams with AI‑powered revision. Smart, personalised revision sessions that adapt to your weak spots — so you focus on what matters and walk into every exam confident.</p>
+                <span class="solution-card-link">Visit Revise AI →</span>
+            </a>
             <div class="solution-card">
                 <div class="solution-icon">📅</div>
                 <h3>Planning Tools</h3>
