@@ -84,7 +84,7 @@
         }
 
         .logo img {
-            height: 48px;
+            height: 44px;
             width: auto;
             object-fit: contain;
         }
@@ -579,7 +579,7 @@
         }
 
         .footer-logo img {
-            height: 42px;
+            height: 38px;
             width: auto;
             object-fit: contain;
         }
@@ -637,6 +637,35 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 0.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+                text-align: center;
+                margin-top: 0.5rem;
             }
 
             .mobile-menu-btn {
@@ -1031,7 +1060,14 @@
         
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
             });
         }
 
