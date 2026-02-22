@@ -635,17 +635,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 right: 0;
-                background: rgba(15, 23, 42, 0.98);
+                bottom: 0;
+                background: rgba(15, 23, 42, 0.99);
                 flex-direction: column;
-                padding: 1rem 2rem;
-                gap: 0.5rem;
-                border-bottom: 1px solid var(--border);
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                z-index: 9999;
+                padding: 2rem;
             }
 
             .nav-links.active {
@@ -654,22 +661,26 @@
 
             .nav-links li {
                 width: 100%;
+                text-align: center;
+                list-style: none;
             }
 
             .nav-links a {
                 display: block;
-                padding: 0.75rem 0;
+                padding: 1rem 0;
+                font-size: 1.2rem;
                 border-bottom: 1px solid var(--border);
             }
 
             .nav-links li:last-child a {
                 border-bottom: none;
-                text-align: center;
-                margin-top: 0.5rem;
+                margin-top: 1rem;
             }
 
             .mobile-menu-btn {
                 display: block;
+                z-index: 10000;
+                position: relative;
             }
 
             .contact-container {
@@ -1061,12 +1072,14 @@
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
+                mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
             });
 
             // Close menu when a link is clicked
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
+                    mobileMenuBtn.textContent = '☰';
                 });
             });
         }
