@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -19,11 +19,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
         }
 
         :root {
@@ -42,9 +42,9 @@
 
         html {
             scroll-behavior: smooth;
-        }
+    }
 
-        body {
+    body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
@@ -99,10 +99,12 @@
             display: inline-block;
         }
 
+        .brand-blue { color: var(--primary); }
+        .brand-yellow { color: var(--secondary); }
+
         .brand-tagline {
             font-size: 0.55em;
             font-weight: 400;
-            color: var(--secondary);
             letter-spacing: normal;
             text-transform: none;
         }
@@ -163,10 +165,10 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            display: flex;
+      display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+      justify-content: center;
+      text-align: center;
             padding: 8rem 2rem 4rem;
             background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
             position: relative;
@@ -191,7 +193,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
@@ -230,10 +232,10 @@
         }
 
         .buttons {
-            display: flex;
+      display: flex;
             justify-content: center;
             gap: 1.5rem;
-            flex-wrap: wrap;
+      flex-wrap: wrap;
             margin-bottom: 3rem;
         }
 
@@ -241,11 +243,11 @@
             padding: 1rem 2.5rem;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 8px;
+      border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
-            border: none;
+      border: none;
             cursor: pointer;
         }
 
@@ -481,7 +483,7 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: none;
+      outline: none;
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(220, 152, 48, 0.1);
         }
@@ -496,11 +498,11 @@
             padding: 1rem;
             background: var(--secondary);
             color: var(--bg-dark);
-            border: none;
+      border: none;
             border-radius: 6px;
             font-size: 1rem;
             font-weight: 600;
-            cursor: pointer;
+      cursor: pointer;
             transition: all 0.3s;
         }
 
@@ -511,7 +513,7 @@
         }
 
         .form-submit:disabled {
-            opacity: 0.6;
+      opacity: 0.6;
             cursor: not-allowed;
         }
 
@@ -670,18 +672,18 @@
 
         .fade-in {
             animation: fadeInUp 0.6s ease-out;
-        }
-    </style>
+    }
+  </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="images/logo.svg" alt="VidvatAI Labs Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                <img src="images/logo.svg" alt="VidvatAILabs Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
                 <span class="logo-text-wrapper">
-                    <span class="logo-text" data-brand="name">VidvatAI Labs</span>
-                    <span class="brand-tagline" data-brand="tagline">AI Unlimited</span>
+                    <span class="logo-text"><span class="brand-blue">VidvatAI</span><span class="brand-yellow">Labs</span></span>
+                    <span class="brand-tagline"><span class="brand-yellow">AI</span> <span class="brand-blue">Unlimited</span></span>
                 </span>
             </a>
             <ul class="nav-links">
@@ -746,7 +748,7 @@
 
     <!-- Features Section -->
     <section id="features">
-        <h2 class="section-title">Why Choose VidvatAI</h2>
+        <h2 class="section-title">Why Choose <span class="brand-blue">VidvatAI</span><span class="brand-yellow">Labs</span></h2>
         <p class="section-subtitle">Built with humans at the center</p>
         
         <div class="features-grid">
@@ -781,7 +783,7 @@
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Contact Information</h3>
-                <p>Have questions? Need support? Want to explore how VidvatAI can transform your workflow? We're here to help.</p>
+                <p>Have questions? Need support? Want to explore how <span class="brand-blue">VidvatAI</span><span class="brand-yellow">Labs</span> can transform your workflow? We're here to help.</p>
                 
                 <ul class="contact-details">
                     <li>
@@ -830,10 +832,10 @@
         <div class="footer-container">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="images/logo.svg" alt="VidvatAI Labs Logo" onerror="this.style.display='none';">
+                    <img src="images/logo.svg" alt="VidvatAILabs Logo" onerror="this.style.display='none';">
                     <div>
-                        <h4 data-brand="name">VidvatAI Labs</h4>
-                        <span class="footer-brand-tagline" data-brand="tagline">AI Unlimited</span>
+                        <h4><span class="brand-blue">VidvatAI</span><span class="brand-yellow">Labs</span></h4>
+                        <span class="footer-brand-tagline"><span class="brand-yellow">AI</span> <span class="brand-blue">Unlimited</span></span>
                     </div>
                 </div>
                 <p>AI that thinks with you. Solutions that move life forward.</p>
@@ -863,10 +865,10 @@
                 <p>support@vidvatailabs.com</p>
                 <p>help@vidvatailabs.com</p>
                 <p>Available 24/7</p>
-            </div>
-        </div>
+    </div>
+  </div>
         <div class="footer-bottom">
-            <p data-brand-year>&copy; 2024 VidvatAI Labs. All rights reserved.</p>
+            <p data-brand-year>&copy; 2024 <span class="brand-blue">VidvatAI</span><span class="brand-yellow">Labs</span>. All rights reserved.</p>
         </div>
     </footer>
 
@@ -878,7 +880,7 @@
            ============================================ */
         const SITE_CONFIG = {
             brand: {
-                name: 'VidvatAI Labs',
+                name: 'VidvatAILabs',
                 tagline: 'AI Unlimited',
                 description: 'AI that thinks with you. Solutions that move life forward.',
             },
@@ -891,14 +893,6 @@
                 business: 'business@vidvatailabs.com',
             }
         };
-
-        // Auto-populate all elements with data-brand attributes from config
-        document.querySelectorAll('[data-brand]').forEach(el => {
-            const key = el.getAttribute('data-brand');
-            if (SITE_CONFIG.brand[key]) {
-                el.textContent = SITE_CONFIG.brand[key];
-            }
-        });
 
         // Auto-update copyright year
         document.querySelectorAll('[data-brand-year]').forEach(el => {
